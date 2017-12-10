@@ -1,0 +1,44 @@
+.newPostBtn {
+	max-width: 960px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.gridContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: minmax(10px, auto);
+	grid-gap: 20px;
+	max-width: 960px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background: rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+
+.onePost {
+	background: rgba(0, 0, 0, 0.1);
+	padding: 10px;
+}
+
+.onePost:hover {
+	background: rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+}
+
+.formContainer {
+	max-width: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+	background: rgba(0, 0, 0, 0.1);
+	padding: 30px;
+}
+
+.oneNinjaDetail {
+	max-width: 500px;
+	min-height: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+}

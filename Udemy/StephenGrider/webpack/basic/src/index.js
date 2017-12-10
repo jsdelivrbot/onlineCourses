@@ -1,4 +1,11 @@
 const sum = require('./sum');
 
 const total = sum(1, 2);
-console.log('total: ', total);
+const some = require('./sum')
+const a = require('.')
+
+const config = {
+  // entry: './index.js'
+}
+
+module.exports = config;

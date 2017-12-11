@@ -12,8 +12,14 @@
 
 
 const button = document.createElement('button');
+button.innerText = 'CLICK!!!'
 button.onclick = () => {
-  
+  // System.import is responsible for code splitting
+  System.import('./image_viewer.js')
+    .then((module) => {
+      // console.log('module: ', module);
+      module.default();
+    });
 }
 
 document.body.appendChild(button);

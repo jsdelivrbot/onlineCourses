@@ -10,8 +10,10 @@
 // const sum = require('./sum');
 
 
-import sum from './sum';
-import './image_viewer';
 
-const total = sum(1, 2);
-console.log('total: ', total);
+const button = document.createElement('button');
+button.onclick = () => {
+  
+}
+
+document.body.appendChild(button);

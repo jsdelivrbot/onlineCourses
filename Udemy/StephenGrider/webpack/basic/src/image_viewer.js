@@ -13,5 +13,6 @@ smallImg.src = small;
 document.body.appendChild(smallImg);
 
 const bigImg = document.createElement('img');
+// bigImg.src = `build/${big}`;
 bigImg.src = big;
 document.body.appendChild(bigImg);

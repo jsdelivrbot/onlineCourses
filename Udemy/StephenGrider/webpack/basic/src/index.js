@@ -4,7 +4,11 @@
 
 // style loader and css loader
 
+// loader = thing to do inside of bundle.js
+// plugin = want to do something outside of bundle.js
+
 // const sum = require('./sum');
+
 
 import sum from './sum';
 import './image_viewer';

@@ -21,7 +21,8 @@
     "redux": "^3.6.0",
     "redux-form": "^6.3.2",
     "redux-thunk": "^2.1.0",
-    "save-dev": "^2.0.0"
+    "save-dev": "^2.0.0",
+    "webpack-dev-server": "^2.2.0-rc.0"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",

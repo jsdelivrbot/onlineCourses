@@ -1,11 +1,13 @@
 const express = require('express');
 const expressGraphQL= require('express-graphql');
+const schema = require('./schema/schema');
 
 const app = express();
 
 const PORT = 3000;
 
 app.use('/graphiql', expressGraphQL({
+  schema,
   graphiql: true
 }));
 

@@ -1,7 +1,12 @@
 {
   "user": [
-    { "id": 1, "name": "Evie", "age": 1 },
-    { "id": 2, "name": "Ara", "age": 2 },
-    { "id": 3, "name": "Lenore", "age": 3 }
+    { "id": 1, "name": "Evie", "age": 1, "companyId": 2 },
+    { "id": 2, "name": "Ara", "age": 2, "companyId": 2 },
+    { "id": 3, "name": "Lenore", "age": 3, "companyId": 3 }
+  ],
+  "companies": [
+    { "id": 1, "name": "Gerhold, Wyman and Littel", "description": "aaa" },
+    { "id": 2, "name": "Gerhold and Sons", "description": "bbb" },
+    { "id": 3, "name": "Adams, Mayert and Breitenberg", "description": "ccc" }
   ]
 }

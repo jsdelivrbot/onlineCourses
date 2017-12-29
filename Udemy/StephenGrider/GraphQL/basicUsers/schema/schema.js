@@ -9,16 +9,16 @@ const {
 } = graphql;
 
 const users = [
-  { id: 23, name: 'Moriah', age: 23 },
-  { id: 57, name: 'Harvey', age: 57 },
-  { id: 16, name: 'Lucile', age: 16 },
+  { id: "23", name: 'Moriah', age: 23 },
+  { id: "57", name: 'Harvey', age: 57 },
+  { id: "16", name: 'Lucile', age: 16 },
 ]
 
 const UserType = new GraphQLObjectType({
   name: 'User',
   fields: {
     id: { type: GraphQLString },
-    firstName: { type: GraphQLString },
+    name: { type: GraphQLString },
     age: { type: GraphQLInt }
   }
 });

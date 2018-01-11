@@ -9,18 +9,34 @@ const {
   GraphQLSchema,
 } = graphql;
 
-const users = [
-  { id: 23, name: 'Moriah', age: 23 },
-  { id: 57, name: 'Harvey', age: 57 },
-  { id: 16, name: 'Lucile', age: 16 },
-]
+// const users = [
+//   { id: 23, name: 'Moriah', age: 23 },
+//   { id: 57, name: 'Harvey', age: 57 },
+//   { id: 16, name: 'Lucile', age: 16 },
+// ]
+
+const CompanyType = new GraphQLObjectType({
+  name: 'Company',
+  fields: {
+    id: { type: GraphQLInt },
+    name: { type: GraphQLString },
+    description: { type: GraphQLString },
+  }
+});
 
 const UserType = new GraphQLObjectType({
   name: 'User',
   fields: {
     id: { type: GraphQLInt },
     name: { type: GraphQLString },
-    age: { type: GraphQLInt }
+    age: { type: GraphQLInt },
+    company: {
+      type: CompanyType,
+      resolve(parentValue, args) {
+        console.log('parentValue: ', parentValue);
+
+      }
+    }
   }
 });
 
@@ -34,7 +50,7 @@ const RootQuery = new GraphQLObjectType({
         // return _.find(users, { id: args.id});
         return axios.get(`http://localhost:3000/user/${args.id}`)
           .then((res) => {
-            console.log('res.data: ', res.data);
+            // console.log('res.data: ', res.data);
 
             return res.data;
           })

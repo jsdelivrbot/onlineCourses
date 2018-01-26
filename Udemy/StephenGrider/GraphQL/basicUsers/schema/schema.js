@@ -22,7 +22,7 @@ const CompanyType = new GraphQLObjectType({
         console.log('parentValue: ', parentValue);
         return axios.get(`http://localhost:3000/companies/${parentValue.id}/users`).then(res => {
           // return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`).then(res => {
-          
+
           console.log('res.data: ', res.data);
           return res.data;
         });
@@ -77,6 +77,26 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addUser: {
+      type: UserType,
+      args: {
+        name: { type: GraphQLString },
+        age: { type: GraphQLInt },
+        companyId: { type: GraphQLInt },
+      },
+      resolve(parentValue, { name, age }) {
+        console.log('{ name, age }: ', { name, age });
+        return axios.post(`http://localhost:3000/users`, { name, age })
+          .then(res => res.data);
+      },
+    },
+  },
+});
+
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation
 });

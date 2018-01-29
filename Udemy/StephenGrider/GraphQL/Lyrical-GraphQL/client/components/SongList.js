@@ -53,16 +53,4 @@ mutation DeleteSong ($id:ID) {
 }
 `;
 
-// export default compose(graphql(fetchSongs)(SongList), graphql(mutation)(SongList));
 export default compose(graphql(fetchSongs), graphql(mutation))(SongList);
-
-// export default graphql(mutation)(
-//   graphql(fetchSongs)(SongList)
-// );
-
-// export default graphql(fetchSongs)(SongList);
-
-// export default compose(
-//   graphql(mutation),
-//   graphql(fetchSongs),
-// )(SongList);

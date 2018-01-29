@@ -7,25 +7,28 @@ import { Link } from 'react-router';
 import fetchSongs from '../queries/fetchSongs';
 
 // css
-import '../style/style.css'
+import '../style/style.css';
 
 class SongList extends Component {
   renderSongs() {
-    return this.props.data.songs.map(song => {
+    return this.props.data.songs.map(({ id, title }) => {
       return (
-        <li className="collection-item" key={song.id}>
-          {song.title}
-          <i
-            className="material-icons"
-            onClick={() => {
-              console.log('this.props: ', this.props);
-              this.props.mutate({ variables: { id: [song.id] } }).then(() => {
-                this.props.data.refetch();
-              });
-            }}
+        <li className="collection-item" key={id}>
+          {title}
+          <div>
+            <Link to={`songs/${id}`}> detail </Link>
+            <i
+              className="material-icons"
+              onClick={() => {
+                console.log('this.props: ', this.props);
+                this.props.mutate({ variables: { id: [id] } }).then(() => {
+                  this.props.data.refetch();
+                });
+              }}
             >
-            delete
-          </i>
+              delete
+            </i>
+          </div>
         </li>
       );
     });

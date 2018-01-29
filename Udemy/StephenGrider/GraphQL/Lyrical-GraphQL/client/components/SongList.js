@@ -3,8 +3,11 @@ import gpl from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
 import { Link } from 'react-router';
 
-// graphql
+// graphql quires
 import fetchSongs from '../queries/fetchSongs';
+
+// css
+import '../style/style.css'
 
 class SongList extends Component {
   renderSongs() {
@@ -12,18 +15,17 @@ class SongList extends Component {
       return (
         <li className="collection-item" key={song.id}>
           {song.title}
-          <span
+          <i
+            className="material-icons"
             onClick={() => {
               console.log('this.props: ', this.props);
-              this.props.mutate({variables: { id: [song.id] }})
-                .then(() => {
-                  this.props.data.refetch();
-                });
+              this.props.mutate({ variables: { id: [song.id] } }).then(() => {
+                this.props.data.refetch();
+              });
             }}
-            style={{ color: 'red', cursor: 'pointer', float: 'right' }}
-          >
+            >
             delete
-          </span>
+          </i>
         </li>
       );
     });

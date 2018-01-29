@@ -14,21 +14,18 @@ class SongList extends Component {
     return this.props.data.songs.map(({ id, title }) => {
       return (
         <li className="collection-item" key={id}>
-          {title}
-          <div>
-            <Link to={`songs/${id}`}> detail </Link>
-            <i
-              className="material-icons"
-              onClick={() => {
-                console.log('this.props: ', this.props);
-                this.props.mutate({ variables: { id: [id] } }).then(() => {
-                  this.props.data.refetch();
-                });
-              }}
-            >
-              delete
-            </i>
-          </div>
+          <Link to={`songs/${id}`}>{title}</Link>
+          <i
+            className="material-icons"
+            onClick={() => {
+              console.log('this.props: ', this.props);
+              this.props.mutate({ variables: { id: [id] } }).then(() => {
+                this.props.data.refetch();
+              });
+            }}
+          >
+            delete
+          </i>
         </li>
       );
     });

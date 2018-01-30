@@ -9,17 +9,27 @@ import LyricCreate from './LyricCreate';
 import fetchSongById from '../queries/fetchSongById';
 
 class SongDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.renderLyrics = this.renderLyrics.bind(this);
+  }
+
+  renderLyrics() {
+    return(<li className="collection-item">dummyLi</li>);
+  }
+
   render() {
     console.log('this.props: ', this.props);
 
     const { song } = this.props.data;
-    if (!song) return (<div>loding...</div>);
+    if (!song) return <div>loding...</div>;
 
     return (
       <div>
-        <Link to='/'>back</Link>
+        <Link to="/">back</Link>
         <h3> {`Song Title: ${song.title}`} </h3>
-        <LyricCreate></LyricCreate>
+        <ul className="collection">{this.renderLyrics()}</ul>
+        <LyricCreate />
       </div>
     );
   }

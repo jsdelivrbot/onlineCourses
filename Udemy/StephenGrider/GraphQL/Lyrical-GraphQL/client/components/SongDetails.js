@@ -29,7 +29,7 @@ class SongDetails extends Component {
         <Link to="/">back</Link>
         <h3> {`Song Title: ${song.title}`} </h3>
         <ul className="collection">{this.renderLyrics()}</ul>
-        <LyricCreate />
+        <LyricCreate songId={song.id}/>
       </div>
     );
   }

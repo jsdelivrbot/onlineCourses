@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { graphql, compose } from 'react-apollo';
+import gpl from 'graphql-tag';
+
+import fetchSongById from '../queries/fetchSongById';
 
 class LyricCreate extends Component {
   constructor(props) {
@@ -12,10 +16,22 @@ class LyricCreate extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('lyrics is submitted');
-    this.setState({ userInput: '' });
+    console.log('this.props.songId: ', this.props.songId);
+    console.log('this.state.userInput: ', this.state.userInput);
+    this.props
+      .mutate({
+        variables: {
+          content: this.state.userInput,
+          songId: this.props.songId,
+        },
+      })
+      .then(() => {
+        this.setState({ userInput: '' });
+      });
   }
 
   render() {
+    console.log('this.props: a', this.props);
     return (
       <div>
         <form onSubmit={this.handleSubmit} action="">
@@ -33,4 +49,17 @@ class LyricCreate extends Component {
   }
 }
 
-export default LyricCreate;
+const mutation = gpl`
+mutation AddLyricsToSong($content: String, $songId: ID) {
+  addLyricToSong(content: $content, songId: $songId) {
+    id
+    lyrics {
+      content
+    }
+  }
+}
+`;
+
+// export default compose(graphql(fetchSongById), graphql(mutation))(LyricCreate);
+export default graphql(mutation)(LyricCreate);
+// export default LyricCreate;

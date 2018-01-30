@@ -27,6 +27,9 @@ class LyricCreate extends Component {
       })
       .then(() => {
         this.setState({ userInput: '' });
+      })
+      .catch((err) => {
+        console.log('err: ', err);
       });
   }
 

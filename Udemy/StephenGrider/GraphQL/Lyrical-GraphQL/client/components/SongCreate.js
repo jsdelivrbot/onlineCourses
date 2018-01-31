@@ -16,14 +16,12 @@ class SongCreate extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.props);
     this.props
       .mutate({
         variables: { title: this.state.title },
         refetchQueries: [{ query: fetchSongs }],
       })
       .then(() => {
-        console.log('in then');
         hashHistory.push('/');
       })
       .catch((err) => {

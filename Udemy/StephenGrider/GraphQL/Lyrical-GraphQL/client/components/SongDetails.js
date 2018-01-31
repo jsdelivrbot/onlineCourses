@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 // componenets
 import LyricCreate from './LyricCreate';
+import LyricList from './LyricList'
 
 // queries
 import fetchSongById from '../queries/fetchSongById';
@@ -19,16 +20,13 @@ class SongDetails extends Component {
   }
 
   render() {
-    console.log('this.props: ', this.props);
-
     const { song } = this.props.data;
     if (!song) return <div>loding...</div>;
-
     return (
       <div>
         <Link to="/">back</Link>
         <h3> {`Song Title: ${song.title}`} </h3>
-        <ul className="collection">{this.renderLyrics()}</ul>
+        <LyricList lyrics={song.lyrics}/>
         <LyricCreate songId={song.id}/>
       </div>
     );

@@ -15,9 +15,6 @@ class LyricCreate extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('lyrics is submitted');
-    console.log('this.props.songId: ', this.props.songId);
-    console.log('this.state.userInput: ', this.state.userInput);
     this.props
       .mutate({
         variables: {
@@ -34,7 +31,6 @@ class LyricCreate extends Component {
   }
 
   render() {
-    console.log('this.props: a', this.props);
     return (
       <div>
         <form onSubmit={this.handleSubmit} action="">

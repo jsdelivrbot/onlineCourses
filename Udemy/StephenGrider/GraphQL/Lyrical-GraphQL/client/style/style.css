@@ -5,4 +5,16 @@
 
 .material-icons {
   cursor: pointer;
+  margin-right: 5px;
+}
+
+.vote-box {
+  display: flex;
+  align-items: center;
+}
+
+div > span {
+  min-width: 20px;
+  float: right;
+  text-align: right;
 }

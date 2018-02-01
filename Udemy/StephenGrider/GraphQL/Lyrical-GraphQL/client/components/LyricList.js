@@ -5,12 +5,22 @@ import { graphql } from 'react-apollo';
 class LyricList extends Component {
   constructor(props) {
     super(props);
-    this.onLink = this.onLink.bind(this);
+    this.onLike = this.onLike.bind(this);
   }
 
-  onLink(id) {
+  onLike(id, likes) {
     // console.log('id: ', id);
-    this.props.mutate({ variables: { id } });
+    this.props.mutate({
+      variables: { id },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        likeLyric: {
+          id: id,
+          __typename: 'LyricType',
+          likes: likes + 1,
+        },
+      },
+    });
   }
 
   renderLyrics() {
@@ -21,7 +31,7 @@ class LyricList extends Component {
           <div className="vote-box">
             <i
               onClick={() => {
-                this.onLink(id);
+                this.onLike(id, likes);
               }}
               className="material-icons"
             >
